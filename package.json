@@ -1,0 +1,8 @@
+{
+  "name": "match-project",
+  "version": "1.0.0",
+  "devDependencies": {
+    "@metamask/detect-provider": "^1.2.0",
+    "web3": "^1.4.0"
+  }
+}

@@ -8,5 +8,4 @@ import com.yeeq.game.entity.Question;
  * @date 2021/2/28
  */
 public interface QuestionMapper extends BaseMapper<Question> {
-
 }

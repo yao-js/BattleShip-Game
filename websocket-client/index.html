@@ -5,33 +5,95 @@
     <title>websocket测试</title>	
     <meta name="keywords" content="keyword1,keyword2,keyword3">
     <meta name="description" content="this is my page">
-    <meta name="content-type" content="text/html" charset="UTF-8">
+	  <script src="./abi-decoder.js"></script>
+	  <script src="./web3.min.js"></script>
+	  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	  <script src="https://cdn.rawgit.com/sytelus/CryptoJS/master/rollups/sha256.js"></script>
+	  <script src="https://cdn.jsdelivr.net/gh/ethereumjs/browser-builds/dist/ethereumjs-tx/ethereumjs-tx-1.3.3.min.js"></script>
+	  <meta name="content-type" content="text/html" charset="UTF-8">
 	<link rel="stylesheet" type="text/css" href="chatroom.css">
+
   </head>
   
   <body>
+  <div id="sub-title-container">
+	  <h1 id="title">区块链战舰游戏</h1>
+	  <h2 id="subtitle"></h2>
+  </div>
 
-	<div class="chat-window">
-		<span>连接：</span>
-		<input name="userIdInput" id="userIdInput"/>
+  <div class="chat-window">
+		<div class="divcss5-right" id="divTable" style="display: none">
+			<table width="700" cellpadding="0" cellspacing="0" class="table2" align="center" id="table_result">
+				<thead>
+				<tr align="center">
+					<th width="150" height="33" class="td2">序号</th>
+					<th width="300" class="td2">用户地址</th>
+					<th width="250" class="td2">赌注</th>
+					<th width="250" class="td2">操作</th>
+				</tr>
+				</thead>
+				<tbody id="myTable">
+				</tbody>
+			</table>
+			<div id="barcon2" class="barcon2">
+			<ul id="pageUtil">
+				<li><input type="button" name="refresh" id="refresh" value="刷新大厅" onclick="queryAllInMatchUser()"/></li>
+				<li><a href="###" id="prePage">上一页</a></li>
+				<li id="barcon1"></li>
+				<li><a href="###" id="nextPage">下一页</a></li>
+				<li><input type="text" id="num" size="2" oninput="value=value.replace(/[^\d]/g,'')"></li>
+				<li><a href="###" id="jumpPage" onclick="jumpPage()">跳转</a></li>
+			</ul>
+			</div>
+		</div>
+	  <div class="divcss-right" id="opponentPlayerInfo" style="display: none">
+	  <span id="currentPlayer" style="font-size:30px; font-style: italic; color: #dc143c; text-align: center">您正在进行游戏</span>
+		  <p>
+		  <span id="opponentPlayerAddress" style="font-size: 20px" ></span>
+		  </p>
+		  <p>
+		  <span id="opponentPlayerBit" style="font-size: 20px"></span>
+		  </p>
+	  </div>
+
+		<span>玩家：</span>
+		<input name="userIdInput" id="userIdInput" placeholder="请输入ETH账户地址" style="width:200px; height:20px;"/>
+		<input type="button" name="queryBalance" id="queryBalance" value="查询余额" onclick="queryBalance()"/>
 		<input type="button" name="connect" id="connect" value="连接" onclick="connect()"/>
 		<input type="button" name="sendUserId" id="sendUserId" value="加入用户" onclick="addUser()"/>
-	</div>
-		
-	<div class="chat-window">
-		<span>随机匹配</span>
-		<input type="button" name="match" id="match" value="随机匹配" onclick="matchUser()"/>
+		<p>
+			<span>账户余额：</span> <span id="player-account-balance"></span>
+		</p>
+  </div>
+
+
+
+
+  <div class="chat-window" id="battlePrepare" style="display: none">
+		<span>赌注Bit：</span>
+		<input name="bitSetup" id="bitSetup" placeholder="请输入赌注（单位为1eth)" style="width:200px; height:20px;"/>
+		<input type="button" name="match" id="match" value="进入匹配大厅" onclick="queryAllInMatchUser()"/>
+<!--		<input type="button" name="match" id="queryMatchUser" value="查询匹配用户" onclick="queryAllInMatchUser()"/>-->
+		<input type="button" name="match" id="cancelMatch" value="取消匹配" onclick="cancelMatch()"/>
 	</div>
 
-	<div class="chat-window">
-		<span>取消匹配</span>
-		<input type="button" name="match" id="match" value="取消匹配" onclick="cancelMatch()"/>
-	</div>
+<!--	<input type="button" name="connect" id="dd" value="进入匹配大厅" onclick="get()"/>-->
+
+
+<!--	<div class="chat-window">-->
+<!--		<span>随机匹配</span>-->
+<!--	</div>-->
+
+<!--	<div class="chat-window">-->
+<!--		<span>取消匹配</span>-->
+<!--	</div>-->
 
 	<div class="chat-window">
 		<span>实时更新分数</span>
 		<input name="newScoreInput" id="newScoreInput" placeholder="新分数"/>
-		<input type="button" name="play" id="play" value="实时更新分数" onclick="userInPlay()"/>
+<!--		<input type="button" name="play" id="play" value="实时更新分数" onclick="userzInPlay()"/>-->
+<!--		<button id="store">测试存储赌注</button>-->
+<!--		<button id="withdraw">测试取走赌注</button>-->
 	</div>
 
 	<div class="chat-window">
@@ -41,6 +103,9 @@
 	
 	<script type="text/javascript" src="jquery.min.js" charset="utf-8"></script>	
 	<script type="text/javascript" src="chatroom.js" charset="utf-8"></script>
-	
+	<script type="text/javascript" src="pageUtil.js" charset="utf-8"></script>
+	<script type="text/javascript" src="ethereumUtil.js" charset="utf-8"></script>
+	<script type="text/javascript" src="BattleshipPlayer.js" charset="utf-8"></script>
+
   </body>
 </html>

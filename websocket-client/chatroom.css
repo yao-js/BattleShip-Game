@@ -1,4 +1,46 @@
 .chat-window{
 	margin-top: 10px;
 	margin-bottom: 10px;
+	margin-left: 50px;
 }
+
+.divcss5-right{
+	height: 500px;
+	width: 750px;
+	float: right;
+	/*solid-color: black;*/
+	/*border:1px solid black;*/
+}
+.divcss-right{
+	float: right;
+	width: 600px;
+	height: 300px;
+	/*solid-color: black;*/
+	/*border:1px solid black;*/
+}
+/* css注释：对divcss5-right设置float:right即可让对象靠右浮动 */
+
+/*
+定义标题的css格式
+ */
+#title 		{ font-size: 5em; text-align: center;}
+#subtitle { font-size: 3em; font-style: italic;}
+
+
+
+a{text-decoration: none;}
+table {border-collapse:collapse;width: 100%;font-size: 14px;}
+th{background-color: #ddd;}
+table, td, th {border:1px solid #e7e8ec;}
+th,tr{height: 40px;}
+td {text-align: center;}
+tr:hover{background-color: #f9f4f3;}
+.barcon {width: 1000px;margin: 0 auto;text-align: center;}
+.barcon2 {float: right;}
+.barcon2 ul {margin: 20px 0;padding-left: 0;list-style: none;text-align: center;}
+.barcon2 li {display: inline;}
+.barcon2 a {font-size: 16px;font-weight: normal;display: inline-block;padding: 5px;padding-top: 0;color: black;border: 1px solid #ddd;background-color: #fff;}
+.barcon2 a:hover{background-color: #eee;}
+.ban {opacity: .4;}
+
+
