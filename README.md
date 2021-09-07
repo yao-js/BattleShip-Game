@@ -20,7 +20,7 @@
 
 
 ## Install
-This project uses **Java、JavaScript、Solidity**。若需要下载请到对应官网进行下载。
+This project uses **Java、JavaScript、Redis** 等。若需要下载请到对应官网进行下载配置。
 
 ## Usage
 
