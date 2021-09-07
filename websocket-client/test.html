@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./abi-decoder.js"></script>
+    <script src="./web3.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdn.rawgit.com/sytelus/CryptoJS/master/rollups/sha256.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/ethereumjs/browser-builds/dist/ethereumjs-tx/ethereumjs-tx-1.3.3.min.js"></script>
+    <script type="text/javascript" src="jquery.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="chatroom.js" charset="utf-8"></script>
+    <script type="text/javascript" src="pageUtil.js" charset="utf-8"></script>
+    <script type="text/javascript" src="ethereumUtil.js" charset="utf-8"></script>
+    <script type="text/javascript" src="BattleshipPlayer.js" charset="utf-8"></script>
+    <script type="text/javascript" src="constants.js" charset="utf-8"></script>
+    <link rel="stylesheet" type="text/css" href="chatroom.css">
+</head>
+<body>
+
+
+<!--<script>-->
+<!--    let startTime = new Date();-->
+<!--    // 如何对这个确认选项做一个倒计时功能？-->
+<!--    if (confirm(" is accused. You get 1 min to response it. Please confirm whether response the timeout accuse ?")) {-->
+<!--        let endTime = new Date();-->
+<!--        let totalTime = endTime - startTime;-->
+<!--        let minutes = Math.floor(totalTime / (60 * 1000));-->
+<!--        console.log(minutes);-->
+<!--        console.log(totalTime);-->
+<!--        if (minutes <= 1) {-->
+<!--            alert("成功");-->
+<!--        } else {-->
+<!--            alert("失败");-->
+<!--        }-->
+<!--    }-->
+<!--</script>-->
+
+<script>
+    // 建立并设置玩家用户的棋盘
+        // build board for player
+    function build_battleship_table(user, type) {
+            table = '<caption style="caption-side: top">' + '<h2>' + type+ '</h2>'  + '</caption>';
+            for (let i = 0; i < BOARD_LEN; i++) {
+                table += '<tr>';
+                for (let j = 0; j < BOARD_LEN; j++) {
+                    table += '<td ';
+                    table += 'id=' + i + '-' + j + ' ';
+                    table += 'class=battleship-board-square>';
+                    table += '</td>';
+                }
+                table += '</tr>';
+            }
+            return table;
+        }
+
+</script>
+<div id="game-container">
+    <div id="player1" class="player-container">
+        <table class="my-board"></table>
+        <table class="their-board"></table>
+        <div class="controller"></div>
+        <h2 id="subtitle"></h2>
+    </div>
+</div>
+
+<button id="accuseTimeout">accuse timeout</button>
+<button id="restore">restore</button>
+<script>
+    setupAccuseTimeoutRespondFunction();
+    // 为Response timeout accuse按钮添加一个定时器功能
+    function setupAccuseTimeoutRespondFunction(){
+        // 判断handle accused timeout按钮是否点击了
+        let isClick = false;
+        let isClear = false;
+        let count = 0;
+        $(document).on('click', function (e){
+            console.log(e.target.id);
+            if (e.target.id == "accuseTimeout"){
+                isClick =true;
+            }
+        })
+
+        // for (; count <= 5; count++){
+            let timeoutId = window.setInterval(function () {
+                count = count + 1;
+                console.log("isClick " + isClick);
+                console.log("count " + count);
+                // 如果当前用户点击了响应按钮，则调用evm handle_timeout function，并通过event通知对方玩家处理成功
+                if (isClick == true){
+                    alert("当前玩家响应了操作超时指控，游戏继续");
+                    // handle_timeout_accusation().then(r => restart_game_ui());
+                    isClear = true;
+                    clearInterval(timeoutId);
+                    return;
+                }else if (count == 6 && isClick == false){
+                    alert("你未在有效时间内未点击响应按钮，游戏即将结束！");
+                    // 通知对手玩家被指控超时的玩家未能在有效时间内做出响应
+                    // notifyAccuseTimeoutSuccess();
+                    clearInterval(timeoutId);
+                    return;
+                }
+            }, 1000);
+
+        }
+    // }
+
+    // getRevertReason("0x55af38317c825b95c735d9cc512b35c8b75281bc492e20361ce23362f769ebfe");
+    // let secs = 10;
+    // function update(num){
+    //     if(num == secs) {
+    //         $('#accuseTimeout').html("Accuse Timeout");
+    //         // document.getElementById("accuseTimeout").attributes('disabled') = false;
+    //         $('#accuseTimeout').removeAttr('disabled');
+    //         // $('#player > #game-option > #accuseTimeout').click(() => { accuse_timeout().then(r => console.log("good")); });
+    //         // $('#accuseTimeout').attr('disabled', 'false');
+    //     }else {
+    //         let printnr = secs - num;
+    //         $('#accuseTimeout').html("Accuse Timeout (" + printnr + ")");
+    //     }
+    // }
+    //
+    // // 为accuse timeout按钮添加一个定时器功能
+    // function setupTimeoutFunction(){
+    //     $('#accuseTimeout').attr('disabled', 'true');
+    //     for (let i=1; i<=secs; i++){
+    //         window.setTimeout("update(" + i + ")", i * 1000);
+    //     }
+    // }
+    // setupTimeoutFunction();
+
+
+    // update the page
+    // $('#player1 > .my-board').html(build_battleship_table('player1', 'my board'));
+    // $('#player1 > .their-board').html(build_battleship_table('player1', 'opponent board'));
+    // $('.my-board .battleship-board-square').hover(
+    //     function() { $(this).css('background-color', 'blue'); },
+    //     function() { $(this).css('background-color', 'transparent'); }
+    // );
+    // $('#subtitle').html('Initializing a Game');
+    //
+    // // start hover style on their-board
+    // $('#player1 .their-board .battleship-board-square').hover(
+    //     function() { $(this).css('background-color', 'red'); },
+    //     function() { $(this).css('background-color', 'transparent'); }
+    // );
+    //
+    // $('#player1 .their-board .battleship-board-square').click(function() {
+    //     console.log("abc");
+    // })
+    //
+    // $('#accuseTimeout').click(function () {
+    //     suspend_game_ui();
+    // })
+    //
+    // $('#restore').click(function () {
+    //     restart_game_ui();
+    // })
+
+
+    // function suspend_game_ui(){
+    //     // unbind click and hover on both player's boards
+    //     $('#player1 .their-board .battleship-board-square').css('background-color', 'transparent');
+    //     $('#player1 .their-board .battleship-board-square').unbind();
+    //     $('#player1 .their-board .battleship-board-square').off('hover');
+    //     $('.battleship-board-square').css('opacity', '0.4');
+    //     // $('#subtitle').html("Accuse Timeout Phase");
+    // }
+    // function restart_game_ui(){
+    //     $('#player1 .their-board .battleship-board-square').hover(
+    //     function() { $(this).css('background-color', 'red'); },
+    //     function() { $(this).css('background-color', 'transparent'); });
+    //
+    //     $('.battleship-board-square').css('opacity', '');
+    //     $('#player1 .their-board .battleship-board-square').bind('click', function (){
+    //         console.log("abc");
+    //     });
+    //
+    // }
+
+    // 当点击表格时，添加ship图标
+    // function addShip() {
+    //     let imageUrl = './media/boat.png'
+    //     $(this).css('background-image', 'url(' + imageUrl + ')');
+    //     $(this).attr('name', 'boat');
+    //     $(this).click(removeShip);
+    // }
+    // // 当点击表格时，移除ship图标
+    // function removeShip() {
+    //     $(this).css('background-image', 'none');
+    //     $(this).attr('name', '');
+    //     $(this).click(addShip);
+    // }
+    // $('.my-board .battleship-board-square').click(addShip);
+    // $('.my-board .battleship-board-square').hover(
+    //     function() { $(this).css('background-color', 'blue'); },
+    //     function() { $(this).css('background-color', 'transparent'); }
+    // );
+
+    // let player = new BattleshipPlayer('playerAddress', 'opponentPlayerAddress');
+
+    // let [commitment, signature] = await player.initialize_board(parse_my_board());
+
+    // console.log(signature);
+</script>
+</body>
+
+</html>

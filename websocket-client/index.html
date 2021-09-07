@@ -18,7 +18,6 @@
   <body>
   <div id="sub-title-container">
 	  <h1 id="title">区块链战舰游戏</h1>
-	  <h2 id="subtitle"></h2>
   </div>
 
   <div class="chat-window">
@@ -47,13 +46,14 @@
 			</div>
 		</div>
 	  <div class="divcss-right" id="opponentPlayerInfo" style="display: none">
-	  <span id="currentPlayer" style="font-size:30px; font-style: italic; color: #dc143c; text-align: center">您正在进行游戏</span>
+	  <span id="gameState" style="font-size:30px; font-style: italic; color: #dc143c; text-align: center">您正在进行游戏</span>
 		  <p>
 		  <span id="opponentPlayerAddress" style="font-size: 20px" ></span>
 		  </p>
 		  <p>
 		  <span id="opponentPlayerBit" style="font-size: 20px"></span>
 		  </p>
+
 	  </div>
 
 		<span>玩家：</span>
@@ -77,35 +77,40 @@
 		<input type="button" name="match" id="cancelMatch" value="取消匹配" onclick="cancelMatch()"/>
 	</div>
 
-<!--	<input type="button" name="connect" id="dd" value="进入匹配大厅" onclick="get()"/>-->
 
-
-<!--	<div class="chat-window">-->
-<!--		<span>随机匹配</span>-->
-<!--	</div>-->
-
-<!--	<div class="chat-window">-->
-<!--		<span>取消匹配</span>-->
-<!--	</div>-->
-
-	<div class="chat-window">
-		<span>实时更新分数</span>
-		<input name="newScoreInput" id="newScoreInput" placeholder="新分数"/>
-<!--		<input type="button" name="play" id="play" value="实时更新分数" onclick="userzInPlay()"/>-->
-<!--		<button id="store">测试存储赌注</button>-->
-<!--		<button id="withdraw">测试取走赌注</button>-->
+	<div id="game-option" class="chat-window">
+<!--		<span>游戏选项：</span>-->
+<!--		<button id="forfeitGame" value="Forfeit Game">Forfeit Game</button>-->
+<!--		<button id="claimWin" value="Claim Win">Claim Win</button>-->
+<!--		<button id="accuseCheating" value="Accuse Cheating">Accuse Cheating</button>-->
+<!--		&lt;!&ndash; 我觉得可以弄一个计时器，每当这个玩家点一了一次棋盘后，就进行倒计时1分钟，当过去了一分钟后，这个accuseTimeout按钮就能点击 &ndash;&gt;-->
+<!--		<button id="accuseTimeout" value="Accuse Timeout">Accuse Timeout (2)</button>-->
+<!--&lt;!&ndash;		如果对方玩家没有在一分钟内回复，就默认是中途离开游戏，服务器可以直接判断控告成功 （将这个控告判断放在evm上？）&ndash;&gt;-->
+<!--		<button id="respondAccusation" value="Respond Accusation">Respond Accusation</button>-->
+<!--&lt;!&ndash;		<button id="store">测试存储赌注</button>&ndash;&gt;-->
+<!--&lt;!&ndash;		<button id="withdraw">测试取走赌注</button>&ndash;&gt;-->
+<!--		<input type="button" name="over" id="over" value="游戏结束" onclick="gameover()"/>-->
 	</div>
 
-	<div class="chat-window">
-		<span>游戏结束</span>
-		<input type="button" name="over" id="over" value="游戏结束" onclick="gameover()"/>
-	</div>
+  <div id="game-container">
+	  <div id="player" class="player-container">
+		  <h2 id="subtitle"></h2>
+		  <h4 class="address"></h4>
+		  <table class="my-board"></table>
+		  <table class="their-board"></table>
+		  <div class="controller"></div>
+	  </div>
+  </div>
 	
 	<script type="text/javascript" src="jquery.min.js" charset="utf-8"></script>	
 	<script type="text/javascript" src="chatroom.js" charset="utf-8"></script>
 	<script type="text/javascript" src="pageUtil.js" charset="utf-8"></script>
 	<script type="text/javascript" src="ethereumUtil.js" charset="utf-8"></script>
 	<script type="text/javascript" src="BattleshipPlayer.js" charset="utf-8"></script>
-
+	<script type="text/javascript" src="Battleship-Game.js" charset="utf-8"></script>
+	<script type="text/javascript" src="battleshipUI.js" charset="utf-8"></script>
+	<script type="text/javascript" src="constants.js" charset="utf-8"></script>
   </body>
+
+
 </html>

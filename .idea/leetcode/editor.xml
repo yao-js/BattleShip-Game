@@ -3,6 +3,14 @@
   <component name="LeetcodeEditor">
     <option name="projectConfig">
       <map>
+        <entry key="$PROJECT_DIR$/../../Leetcode/leetcode/editor/cn/[10]正则表达式匹配.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/../../Leetcode/leetcode/editor/cn/[10]正则表达式匹配.java" />
+              <option name="questionId" value="10" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../../Leetcode/leetcode/editor/cn/[1143]最长公共子序列.java">
           <value>
             <LeetcodeEditor>
@@ -11,11 +19,28 @@
             </LeetcodeEditor>
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../../Leetcode/leetcode/editor/cn/[312]戳气球.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/../../Leetcode/leetcode/editor/cn/[312]戳气球.java" />
+              <option name="questionId" value="312" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../../Leetcode/leetcode/editor/cn/[354]俄罗斯套娃信封问题.java">
           <value>
             <LeetcodeEditor>
               <option name="path" value="$PROJECT_DIR$/../../Leetcode/leetcode/editor/cn/[354]俄罗斯套娃信封问题.java" />
               <option name="questionId" value="354" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../Leetcode/leetcode/editor/cn/[46]全排列.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$PROJECT_DIR$/../../Leetcode/leetcode/editor/cn/doc/content/[46]全排列.md" />
+              <option name="path" value="$PROJECT_DIR$/../../Leetcode/leetcode/editor/cn/[46]全排列.java" />
+              <option name="questionId" value="46" />
             </LeetcodeEditor>
           </value>
         </entry>
@@ -40,6 +65,14 @@
             <LeetcodeEditor>
               <option name="path" value="$PROJECT_DIR$/../../Leetcode/leetcode/editor/cn/[712]两个字符串的最小ASCII删除和.java" />
               <option name="questionId" value="712" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../Leetcode/leetcode/editor/cn/[887]鸡蛋掉落.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/../../Leetcode/leetcode/editor/cn/[887]鸡蛋掉落.java" />
+              <option name="questionId" value="923" />
             </LeetcodeEditor>
           </value>
         </entry>
