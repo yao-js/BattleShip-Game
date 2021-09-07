@@ -26,7 +26,8 @@ This project uses **Java、JavaScript、Solidity**。若需要下载请到对应
 
 - 配置`ganache-cli`
 - 在本地执行`ganache-cli`开启本地离线EVM节点。
-- 通过[Remix IDE](https://remix.ethereum.org/)部署
+- 通过[Remix IDE](https://remix.ethereum.org/)部署`battleship.sol`到本地的离线EVM节点。
+- 更换 `BattleshipPlayer.js` 中的 `contractAddress` 为之前部署到本地离线EVM节点的 `contract address`。
 
 
 
