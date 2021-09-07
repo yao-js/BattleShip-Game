@@ -32,5 +32,3 @@ This project uses **Java、JavaScript、Solidity**。若需要下载请到对应
 - 登陆 `index.html`进行 **Battleship Game**。
 
 
-
-
