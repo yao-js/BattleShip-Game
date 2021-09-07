@@ -1,6 +1,6 @@
 # BattleShip-Game
   
-  该版本的BattleShip（战舰）游戏是基于CSDN链接 **https://liangyihuai.blog.csdn.net/article/details/116459829** 而来的开源 **DApp** 项目，该项目是基于**Ethereum**区块链技术，**Javascript+CSS+HTML**前端技术以及**Java Websocket**后端技术和**Redis**数据库来实现了一个简易版本的在线战舰游戏。它借助**Blockchain Layer2**设计想法来提升EVM的TPS，并同时保证了安全性，同时借助**Merkle Root**和**Merkle Proof**技术来确保**off-chain channel**的安全性以及其数据的完整性，如下图所示：
+  该项目基于**Ethereum**区块链技术，**Javascript+CSS+HTML**前端技术以及**Java Websocket**后端技术和**Redis**数据库来实现了一个简易版本的在线战舰游戏。它借助**Blockchain Layer2**设计想法来提升EVM的TPS，并同时保证了安全性，同时借助**Merkle Root**和**Merkle Proof**技术来确保**off-chain channel**的安全性以及其数据的完整性，如下图所示：
   ![image](https://user-images.githubusercontent.com/55738417/122932845-a916bd80-d3a0-11eb-89c0-bef23382d580.png)
   
 
@@ -31,4 +31,8 @@ This project uses **Java、JavaScript、Solidity**。若需要下载请到对应
 - 启动 `SpringBoot APP`。
 - 登陆 `index.html`进行 **Battleship Game**。
 
+## Related Efforts
+- [ChainingBlocks](https://liangyihuai.blog.csdn.net/article/details/116459829) \- 本系统是基于Battleship Game开源项目继续完善的。
+- [Yee-Q](https://github.com/Yee-Q/match-project) \- 本系统是参考了该github博主的开源项目所继续实现的游戏对战平台。
+- [Hashed Time Lock Contract](https://zhuanlan.zhihu.com/p/112228102) \- 本系统的`HTLC Blockchain Layer2`设计初衷是参考了该文章而来的。
 
