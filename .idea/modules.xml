@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/websocket-demo/battleship-game.iml" filepath="$PROJECT_DIR$/websocket-demo/battleship-game.iml" />
       <module fileurl="file://$PROJECT_DIR$/common-demo/common-demo.iml" filepath="$PROJECT_DIR$/common-demo/common-demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/dao-demo/dao-demo.iml" filepath="$PROJECT_DIR$/dao-demo/dao-demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/match-project.iml" filepath="$PROJECT_DIR$/match-project.iml" />
-      <module fileurl="file://$PROJECT_DIR$/websocket-demo/websocket-game.iml" filepath="$PROJECT_DIR$/websocket-demo/websocket-game.iml" />
     </modules>
   </component>
 </project>
