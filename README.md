@@ -32,7 +32,7 @@ This project uses **Java、JavaScript、Redis** 等。若需要下载请到对�
 - 登陆 `index.html`进行 **Battleship Game**。
 
 ## Related Efforts
-- [ChainingBlocks](https://liangyihuai.blog.csdn.net/article/details/116459829) \- 本系统是基于Battleship Game开源项目继续完善的。
-- [Yee-Q](https://github.com/Yee-Q/match-project) \- 本系统是参考了该github博主的开源项目所继续实现的游戏对战平台。
+- [Battleship Game Demo](https://liangyihuai.blog.csdn.net/article/details/116459829) \- 本系统是基于Battleship Game开源项目继续完善的。
+- [Match-Project](https://github.com/Yee-Q/match-project) \- 本系统是参考了该github博主的开源项目所继续实现的游戏对战平台。
 - [Hashed Time Lock Contract](https://zhuanlan.zhihu.com/p/112228102) \- 本系统的`HTLC Blockchain Layer2`设计初衷是参考了该文章而来的。
 
