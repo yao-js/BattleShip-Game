@@ -1,6 +1,6 @@
 # BattleShip-Game
   
-  该项目基于**Ethereum**区块链技术，**Javascript+CSS+HTML**前端技术以及**Java Websocket**后端技术和**Redis**数据库来实现了一个简易版本的在线战舰游戏。它借助**Blockchain Layer2**设计想法来提升EVM的TPS，并同时保证了安全性，同时借助**Merkle Root**和**Merkle Proof**技术来确保**off-chain channel**的安全性以及其数据的完整性，如下图所示：
+  该项目基于**Ethereum**区块链技术，**Javascript+CSS+HTML**前端技术以及**Java Websocket**后端技术和**Redis**数据库来实现了一个简易版本的在线战舰游戏。它借助**Blockchain Layer2**设计想法来提升EVM的TPS，并同时保证了安全性，同时借助**Merkle Root**和**Merkle Membership Proof**技术来确保**off-chain channel**的安全性以及其数据的完整性，如下图所示：
   ![image](https://user-images.githubusercontent.com/55738417/122932845-a916bd80-d3a0-11eb-89c0-bef23382d580.png)
   
 
@@ -20,7 +20,7 @@
 
 ## 设计系统过程中遇到的问题
   ### 1. Smart Contract的安全性设计
-    >在设计Hashed Time Lock Contract时候，由于是由用户直接通过`ETH Address`来发送`Transaction`到EVM上，例如此时有恶意用户直接请求游戏胜利，想要拿走双方赌注，这时候就要考虑`Smart Contract`中 `function`的安全性。
+   >在设计Hashed Time Lock Contract时候，由于是由用户直接通过`ETH Address`来发送`Transaction`到EVM上，例如此时有恶意用户直接请求游戏胜利，想要拿走双方赌注，这时候就要考虑`Smart Contract`中 `function`的安全性。
 
 
 ## Install
