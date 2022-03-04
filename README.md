@@ -1,6 +1,6 @@
 # BattleShip-Game
   
-  该项目基于**Ethereum**区块链技术，**Javascript+CSS+HTML**前端技术以及**Java Websocket**后端技术和**Redis**数据库来实现了一个简易版本的在线战舰游戏。它借助**Blockchain Layer2**设计想法来提升EVM的TPS，并同时保证了安全性，同时借助**Merkle Root**和**Merkle Membership Proof**技术来确保**off-chain channel**的安全性以及其数据的完整性，如下图所示：
+  该项目基于**Ethereum**区块链技术，**Javascript+CSS+HTML**前端技术以及**Java Websocket**后端技术和**Redis**数据库来实现了一个简易版本的在线战舰游戏。它借助**Blockchain Layer2**设计想法来提升EVM的TPS，并同时保证了安全性，同时借助**Merkle Tree**和**Merkle Membership Proof**技术来确保**off-chain channel**的安全性以及其数据的完整性，如下图所示：
   ![image](https://user-images.githubusercontent.com/55738417/122932845-a916bd80-d3a0-11eb-89c0-bef23382d580.png)
   
 
