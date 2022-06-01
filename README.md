@@ -16,7 +16,7 @@
    ![未命名文件 (1)](https://user-images.githubusercontent.com/55738417/132353985-abd0d92b-e7f7-4591-ab89-c51fa1f1b758.png)
 
    ### 4.基于Merkle Root以及Merkle Membership Proof技术来实现Off-Chain Channel
-   >在游戏开始之前，双方玩家需要在自己的棋盘上设置 `ship` 并且根据这个设置好的棋盘生成一个`merkle root commitment`。接着通过websocket机制传输给双方本地保存。当游戏开始后，每当玩家点击了棋盘一个格子，会生成对应的 `board signed guess` 并发送给对方玩家，有对方玩家根据自己的 `merkle root commitment` 来判断这个 `board guess` 是否点击到了 `ship` 同时返回结果给该玩家，该结果包括 `merkle proof、hitting result、nonce` 。该玩家通过之前保存在本地的`opponent player merkle root commitment`来判断该结果是否有效（借助`merkle membership proof`）。
+   >在游戏开始之前，双方玩家需要在自己的棋盘上设置 `ship` 并且根据这个设置好的棋盘生成一个`merkle root commitment`。接着通过websocket机制传输给双方本地保存。当游戏开始后，每当玩家点击了棋盘一个格子，会生成对应的 `board signed guess` 并发送给对方玩家，有对方玩家根据自己的 `merkle root commitment` 来判断这个 `board guess` 是否点击到了 `ship` 同时返回结果给该玩家，该结果包括 `merkle proof、hitting result、nonce` 。该玩家通过之前保存在本地的对手玩家的`merkle root commitment`来判断该结果是否有效（借助`merkle membership proof`）。
 
 ## 设计系统过程中遇到的问题
   ### 1. Smart Contract的安全性设计
